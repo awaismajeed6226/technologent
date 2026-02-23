@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technologent Engineering | Industrial EPC & Energy Solutions</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="https://assets.cdn.filesafe.space/cm7ZvQBQ0Ce20oOJVI35/media/699c2a2b679b48120f23a20e.png">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
+<style>
+
+/* ======================================================
+   ROOT VARIABLES
+====================================================== */
+:root{
+--primary:#ff7a00;
+--dark:#0c0c0d;
+--soft:#151517;
+--muted:#9fa3a7;
+--border:#222;
+}
+
+/* ======================================================
+   GLOBAL
+====================================================== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:var(--dark);
+color:white;
+scroll-behavior:smooth;
+overflow-x:hidden;
+}
+
+.section{
+padding:120px 0;
+}
+
+.section-title{
+font-size:42px;
+font-weight:700;
+text-align:center;
+margin-bottom:20px;
+}
+
+.section-sub{
+max-width:900px;
+margin:0 auto 70px auto;
+text-align:center;
+color:var(--muted);
+font-size:17px;
+line-height:1.8;
+}
+
+/* ======================================================
+   HEADER
+====================================================== */
+.navbar{
+background:rgba(0,0,0,.95);
+padding:20px 0;
+transition:0.4s;
+}
+
+.navbar.shrink{
+padding:10px 0;
+box-shadow:0 10px 30px rgba(0,0,0,.6);
+}
+
+.navbar-brand img{
+height:80px;
+transition:0.3s;
+}
+
+.navbar.shrink img{
+height:60px;
+}
+
+.nav-link{
+color:#ccc !important;
+margin-left:30px;
+font-weight:500;
+}
+
+.nav-link:hover{
+color:var(--primary) !important;
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+.hero{
+position:relative;
+height:100vh;
+display:flex;
+align-items:center;
+overflow:hidden;
+}
+
+.hero video{
+position:absolute;
+top:50%;
+left:50%;
+min-width:100%;
+min-height:100%;
+transform:translate(-50%,-50%);
+object-fit:cover;
+z-index:-2;
+}
+
+.hero-overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(to right, rgba(0,0,0,.95), rgba(0,0,0,.6));
+z-index:-1;
+}
+
+.hero-content{
+max-width:750px;
+}
+
+.hero h1{
+font-size:65px;
+font-weight:700;
+line-height:1.1;
+}
+
+.hero p{
+color:var(--muted);
+font-size:20px;
+margin-top:25px;
+}
+
+.btn-main{
+background:var(--primary);
+color:white;
+padding:15px 40px;
+font-weight:600;
+border:none;
+margin-top:30px;
+}
+
+/* ======================================================
+   MOVING SQUARE CARDS
+====================================================== */
+.marquee-wrapper{
+overflow:hidden;
+position:relative;
+}
+
+.marquee{
+display:flex;
+width:max-content;
+animation:scroll 35s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee{
+animation-play-state:paused;
+}
+
+.marquee-item{
+width:330px;
+height:330px;
+background:var(--soft);
+border:1px solid var(--border);
+border-radius:10px;
+margin-right:30px;
+padding:30px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+transition:0.4s ease;
+}
+
+.marquee-item:hover{
+transform:translateY(-12px) scale(1.03);
+border-color:var(--primary);
+box-shadow:0 25px 50px rgba(0,0,0,.6);
+}
+
+.marquee-item h5{
+font-size:20px;
+margin-bottom:15px;
+}
+
+.marquee-item p{
+color:var(--muted);
+font-size:14px;
+line-height:1.7;
+}
+
+.marquee-item img{
+height:55px;
+margin-bottom:20px;
+}
+
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+}
+
+/* ======================================================
+   STATS SECTION
+====================================================== */
+.stats{
+background:#101010;
+text-align:center;
+}
+
+.stat-box{
+padding:50px 20px;
+}
+
+.stat-number{
+font-size:55px;
+font-weight:700;
+color:var(--primary);
+}
+
+.stat-label{
+color:var(--muted);
+margin-top:10px;
+}
+
+/* ======================================================
+   TEAM
+====================================================== */
+.team-img{
+width:100%;
+border-radius:12px;
+}
+
+.team-title{
+font-size:26px;
+margin-bottom:15px;
+}
+
+.team-text{
+color:var(--muted);
+line-height:1.8;
+}
+
+/* ======================================================
+   CLIENT LOGOS
+====================================================== */
+.client-marquee{
+overflow:hidden;
+}
+
+.client-content{
+display:flex;
+width:max-content;
+animation:scroll 25s linear infinite;
+}
+
+.client-content img{
+height:90px;
+margin:0 50px;
+opacity:0.8;
+transition:0.3s;
+}
+
+.client-content img:hover{
+opacity:1;
+transform:scale(1.1);
+}
+
+/* ======================================================
+   CONTACT
+====================================================== */
+.contact-box{
+background:var(--soft);
+padding:60px;
+border:1px solid var(--border);
+border-radius:10px;
+}
+
+.form-control{
+background:#111;
+border:1px solid #333;
+color:white;
+}
+
+.form-control:focus{
+border-color:var(--primary);
+box-shadow:none;
+background:#111;
+color:white;
+}
+
+footer{
+background:#080808;
+padding:40px;
+text-align:center;
+color:#777;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<nav class="navbar navbar-expand-lg fixed-top">
+<div class="container">
+<a class="navbar-brand" href="#">
+<img src="https://assets.cdn.filesafe.space/cm7ZvQBQ0Ce20oOJVI35/media/699c2a2b679b48120f23a20e.png">
+</a>
+<button class="navbar-toggler bg-light" data-bs-toggle="collapse" data-bs-target="#nav"></button>
+<div class="collapse navbar-collapse justify-content-end" id="nav">
+<ul class="navbar-nav">
+<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+<li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="hero">
+<video autoplay muted loop playsinline>
+<source src="https://assets.cdn.filesafe.space/cm7ZvQBQ0Ce20oOJVI35/media/699c1bad9598d24813d61748.mp4">
+</video>
+<div class="hero-overlay"></div>
+<div class="container hero-content">
+<h1>Engineering Industrial Energy Infrastructure for Pakistan</h1>
+<p>
+Delivering Utility-Scale Solar, EPC Excellence, Mechanical & Electrical Engineering,
+and High-Performance HVAC Systems Across Pakistan.
+</p>
+<button class="btn-main">Request Executive Consultation</button>
+</div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section">
+<div class="container">
+<h2 class="section-title">About Technologent Engineering</h2>
+<p class="section-sub">
+Founded in 2020 and headquartered in Lahore, Technologent Engineering was established with a vision to deliver world-class industrial engineering and renewable energy solutions throughout Pakistan. 
+Since inception, we have focused on precision engineering, regulatory compliance, safety excellence, and long-term operational efficiency.
+Our expertise spans large-scale industrial solar installations, EPC project management, electrical infrastructure systems, mechanical engineering works, and HVAC solutions tailored for manufacturing and heavy industry.
+</p>
+</div>
+</section>
+
+<!-- ================= CORE CAPABILITIES ================= -->
+<section id="services" class="section">
+  <div class="container">
+    <h2 class="section-title">Core Capabilities</h2>
+    <p class="section-sub">
+      Our engineering divisions are structured to deliver turnkey industrial solutions
+      with certified execution, technical precision, and measurable performance outcomes.
+    </p>
+  </div>
+
+  <div class="marquee-wrapper">
+    <div class="marquee">
+
+      <div class="marquee-item">
+        <i class="fa-solid fa-solar-panel"></i>
+        <h5>Industrial Solar Systems</h5>
+        <p>
+          Design and deployment of high-capacity on-grid and hybrid solar systems engineered
+          for industrial scale performance.
+        </p>
+      </div>
+
+      <div class="marquee-item">
+        <i class="fa-solid fa-diagram-project"></i>
+        <h5>EPC Project Execution</h5>
+        <p>
+          Complete engineering, procurement, and construction management from feasibility
+          to commissioning.
+        </p>
+      </div>
+
+      <div class="marquee-item">
+        <i class="fa-solid fa-bolt"></i>
+        <h5>Electrical Infrastructure</h5>
+        <p>
+          HT/LT panels, transformers, industrial distribution networks, and safety-compliant
+          installations.
+        </p>
+      </div>
+
+      <div class="marquee-item">
+        <i class="fa-solid fa-gears"></i>
+        <h5>Mechanical Engineering</h5>
+        <p>
+          Heavy-duty industrial installations, piping systems, and plant integration services.
+        </p>
+      </div>
+
+      <div class="marquee-item">
+        <i class="fa-solid fa-fan"></i>
+        <h5>HVAC Systems</h5>
+        <p>
+          Industrial-grade ventilation, cooling, and climate control systems.
+        </p>
+      </div>
+
+      <div class="marquee-item">
+        <i class="fa-solid fa-file-circle-check"></i>
+        <h5>Net Metering & Compliance</h5>
+        <p>
+          Complete regulatory approvals, documentation, and grid interconnection management.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ================= CERTIFICATIONS ================= -->
+<section class="section">
+<div class="container">
+<h2 class="section-title">Certifications & Standards</h2>
+<p class="section-sub">
+We operate under recognized national and international compliance frameworks ensuring reliability, accountability, and professional excellence.
+</p>
+</div>
+
+<div class="marquee-wrapper">
+<div class="marquee">
+
+<div class="marquee-item">
+<img src="https://img.icons8.com/fluency/96/certificate.png">
+<h5>PEC Certified</h5>
+<p>Registered with Pakistan Engineering Council for authorized engineering operations.</p>
+</div>
+
+<div class="marquee-item">
+<img src="https://img.icons8.com/fluency/96/guarantee.png">
+<h5>ISO Certified</h5>
+<p>Compliant with international quality management standards.</p>
+</div>
+
+<div class="marquee-item">
+<img src="https://img.icons8.com/fluency/96/engineer.png">
+<h5>Certified Engineers</h5>
+<p>Highly qualified engineering professionals with industrial expertise.</p>
+</div>
+
+<div class="marquee-item">
+<img src="https://img.icons8.com/fluency/96/headset.png">
+<h5>24/7 Technical Support</h5>
+<p>Round-the-clock maintenance and operational monitoring services.</p>
+</div>
+
+<div class="marquee-item">
+<img src="https://img.icons8.com/fluency/96/shield.png">
+<h5>Industrial Warranties</h5>
+<p>Long-term performance guarantees ensuring system durability.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section id="projects" class="section stats">
+<div class="container">
+<div class="row">
+
+<div class="col-md-3 stat-box">
+<div class="stat-number" data-target="150">0</div>
+<div class="stat-label">Projects Delivered</div>
+</div>
+
+<div class="col-md-3 stat-box">
+<div class="stat-number" data-target="80">0</div>
+<div class="stat-label">Industrial Clients</div>
+</div>
+
+<div class="col-md-3 stat-box">
+<div class="stat-number" data-target="50">0</div>
+<div class="stat-label">MW Installed</div>
+</div>
+
+<div class="col-md-3 stat-box">
+<div class="stat-number" data-target="24">0</div>
+<div class="stat-label">Support Availability</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ================= TEAM ================= -->
+<section id="team" class="section">
+<div class="container">
+<h2 class="section-title">Leadership Team</h2>
+
+<div class="row align-items-center mb-5">
+<div class="col-md-5">
+<img src="https://via.placeholder.com/500x600" class="team-img">
+</div>
+<div class="col-md-7">
+<div class="team-title">Mr. Abdul Majeed – Chief Executive Officer</div>
+<p class="team-text">
+Mr. Abdul Majeed brings over 35 years of proven experience in mechanical engineering and industrial project leadership. 
+He has successfully executed engineering assignments across more than six countries including KSA, UAE, Qatar, Oman, and other international markets. 
+His expertise in large-scale infrastructure, plant integration, and compliance ensures Technologent Engineering operates at global standards of performance and accountability.
+</p>
+</div>
+</div>
+
+<div class="row align-items-center">
+<div class="col-md-5">
+<img src="https://via.placeholder.com/500x600" class="team-img">
+</div>
+<div class="col-md-7">
+<div class="team-title">Mr. Baqir Ali – Director Operations</div>
+<p class="team-text">
+With over 7 years of operational and industrial engineering experience, Mr. Baqir Ali oversees project execution strategy, quality assurance, resource coordination, and technical field operations. His leadership ensures timely delivery and engineering precision across all projects.
+</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ================= CLIENT LOGOS ================= -->
+<section class="section">
+<div class="container">
+<h2 class="section-title">Our Industrial Clients</h2>
+</div>
+<div class="client-marquee">
+<div class="client-content">
+<img src="https://assets.cdn.filesafe.space/cm7ZvQBQ0Ce20oOJVI35/media/699c382d5dfd50fdb86fa907.jpeg">
+<img src="https://assets.cdn.filesafe.space/cm7ZvQBQ0Ce20oOJVI35/media/699c382d679b48628e269fc8.jpeg">
+<img src="https://assets.cdn.filesafe.space/cm7ZvQBQ0Ce20oOJVI35/media/699c382d5dfd50d08b6fa90b.jpeg">
+<img src="https://assets.cdn.filesafe.space/cm7ZvQBQ0Ce20oOJVI35/media/699c382d679b48ac87269fcd.jpeg">
+<img src="https://assets.cdn.filesafe.space/cm7ZvQBQ0Ce20oOJVI35/media/699c382d9598d201bddc1d98.jpeg">
+<img src="https://assets.cdn.filesafe.space/cm7ZvQBQ0Ce20oOJVI35/media/699c382d5dfd5027876fa909.jpeg">
+<img src="https://assets.cdn.filesafe.space/cm7ZvQBQ0Ce20oOJVI35/media/699c382d679b485327269fca.jpeg">
+<img src="https://assets.cdn.filesafe.space/cm7ZvQBQ0Ce20oOJVI35/media/699c382d679b48b3b1269fcc.jpeg">
+<img src="https://assets.cdn.filesafe.space/cm7ZvQBQ0Ce20oOJVI35/media/699c382d5dfd5061b26fa90a.jpeg">
+<img src="https://assets.cdn.filesafe.space/cm7ZvQBQ0Ce20oOJVI35/media/699c382dd0716b4f962a2109.jpeg">
+</div>
+</div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="section">
+<div class="container">
+<h2 class="section-title">Contact Us</h2>
+
+<div class="row">
+<div class="col-md-6">
+<p><strong>Head Office:</strong> 40-C Small Sundar Punjab Industrial Estate, Lahore</p>
+<p><strong>Email:</strong> info@technologent.com.pk</p>
+<p><strong>Phone:</strong> +92 300 6832015</p>
+</div>
+
+<div class="col-md-6">
+<div class="contact-box">
+<form>
+<input class="form-control mb-3" placeholder="Full Name">
+<input class="form-control mb-3" placeholder="Email Address">
+<textarea class="form-control mb-3" rows="4" placeholder="Project Details"></textarea>
+<button class="btn-main w-100">Submit Inquiry</button>
+</form>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<footer>
+© 2026 Technologent Engineering. All Rights Reserved.
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+/* Navbar Shrink */
+window.addEventListener("scroll", function(){
+document.querySelector(".navbar").classList.toggle("shrink", window.scrollY > 50);
+});
+
+/* Professional Count Up Animation */
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+const counters = document.querySelectorAll('.stat-number');
+counters.forEach(counter=>{
+const target = +counter.getAttribute('data-target');
+let count = 0;
+const increment = target / 150;
+const update = ()=>{
+count += increment;
+if(count < target){
+counter.innerText = Math.ceil(count);
+requestAnimationFrame(update);
+}else{
+counter.innerText = target;
+}
+};
+update();
+});
+observer.disconnect();
+}
+});
+});
+observer.observe(document.querySelector('.stats'));
+
+</script>
+
+</body>
+</html>
